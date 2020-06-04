@@ -1,37 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { ProductModule } from './products/product.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './products/productList.component';
-import { ConvertToSpaces } from './shared/convertToSpaces.pipe';
-import { StarComponent } from './shared/star.component';
-import { ProductDetailComponent } from './products/product-detail.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { ProductDetailGuard } from './products/product-detail.guard';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductListComponent,
-    ConvertToSpaces,
-    StarComponent,
-    ProductDetailComponent,
-    WelcomeComponent
+    AppComponent
   ],
-  imports: [
+  imports: [    
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-    ])
+    ProductModule,
+    AppRoutingModule // attention à l'ordre des routes 
   ],
   bootstrap: [AppComponent]
 })

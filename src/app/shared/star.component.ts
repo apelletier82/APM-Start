@@ -5,7 +5,6 @@ import { Component, OnChanges, SimpleChanges, Input, Output, EventEmitter } from
     templateUrl:  './star.component.html',
     styleUrls : ['./star.component.css'] 
 })
-
 export class StarComponent implements OnChanges {
     @Input() rating: number = 4;
     starWidth: number;
