@@ -1,7 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-  <pm-productList></pm-productList>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">{{title}}</a>
+    <ul class="navbar-nav mr-auto">      
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/welcome']">Home</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/products']">Product list</a></li>
+    </ul>  
+  </nav>
+</div>
+<div>
+  <router-outlet></router-outlet>
 </div>

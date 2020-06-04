@@ -3,7 +3,6 @@ import { IProduct } from './productInterface';
 import { ProdcutService } from './product.service';
 
 @Component({
-    selector:'pm-productList',
     templateUrl:'./productList.component.html',
     styleUrls: ['./productList.component.css'],
     providers: [ProdcutService]
@@ -31,9 +30,7 @@ export class ProductListComponent
     filteredProducts: IProduct[];
     products: IProduct[] = [];
 
-    constructor(private productService: ProdcutService) {
-        
-    }
+    constructor(private productService: ProdcutService) { }
 
     performFilter(filterValue: string): IProduct[] {
         filterValue = filterValue.toLocaleLowerCase();
@@ -50,7 +47,7 @@ export class ProductListComponent
         next: products => {
                 this.products = products;
                 this.filteredProducts = this.products;
-                this.listFilter = 'cart';
+                this.listFilter = '';
         },
         error: err => this.errorMessage = err 
       });      

@@ -21,6 +21,10 @@ export class ProdcutService {
         catchError(this.handleError));
   }
 
+  getProduct(id: number): Observable<IProduct> {
+      return;
+  }
+
   private handleError(err: HttpErrorResponse) {
       let errorMessage = "";
       if (err.error instanceof ErrorEvent) {
