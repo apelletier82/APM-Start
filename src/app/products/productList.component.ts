@@ -11,14 +11,15 @@ import { ProdcutService } from './product.service';
 
 export class ProductListComponent 
     implements OnInit {
-    
-    private _listFilter = '';
-    
+        
+    private errorMessage = '';
+
     pageTitle: string = 'Product List';
     imageWidth: number = 50
     imageMargin: number = 2;
     imageDisplayed: boolean = false;
-    
+     
+    private _listFilter = '';
     get listFilter(): string {
         return this._listFilter;
     }
@@ -45,9 +46,14 @@ export class ProductListComponent
     }
 
     ngOnInit(): void {
-      this.products = this.productService.getProducts();
-      this.filteredProducts = this.products;
-      this.listFilter = 'cart';
+      this.productService.getProducts().subscribe({
+        next: products => {
+                this.products = products;
+                this.filteredProducts = this.products;
+                this.listFilter = 'cart';
+        },
+        error: err => this.errorMessage = err 
+      });      
     }
 
     onRatingClicked(message: string): void { 
