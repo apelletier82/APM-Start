@@ -32,5 +32,6 @@ testem.log
 
 #System Files
 .DS_Store
+.directory
 
 # End of https://www.toptal.com/developers/gitignore/api/angular
